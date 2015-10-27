@@ -5,6 +5,7 @@
 <?php require_once( '../../inc/model/db_connect.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php require_once( '../../inc/model/validation_func.php'); ?>
+<?php main\confirm_login(); ?>
 <?php main\find_selected_page(); ?>
 <?php $current_page = main\find_pages_by_id($selected_page_id); ?>
 <?php

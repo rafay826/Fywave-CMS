@@ -3,6 +3,7 @@
 <?php require_once( '../../inc/model/db_connect.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php require_once( '../../inc/model/validation_func.php'); ?>
+<?php main\confirm_login(); ?>
 <?php main\find_selected_page(); ?>
 <?php
 
@@ -56,7 +57,7 @@ else
             </select> </p>
 <!--        <p>Password: <input type="text" name="password" value="">-->
         </p>
-        <input type="submit" name="submit" value="Delete Admin">
+        <input type="submit" name="submit" onclick="return confirm('Are you sure?');" value="Delete Admin">
     </form>
         <a href="../manage_content.php">cancel</a>
     </section>

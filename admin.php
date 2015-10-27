@@ -2,6 +2,7 @@
 <?php require_once( 'inc/model/sessions.php'); ?>
 <?php require_once( 'inc/model/db_connect.php'); ?>
 <?php require_once( 'inc/model/functions.php'); ?>
+<?php main\confirm_login(); ?>
 <?php include('inc/views/layouts/header.php'); ?>
 <?php 
     $user = "admin";
@@ -11,6 +12,12 @@
 <?php //include('inc/views/layouts/admin_header.php') ?>
 <div class="wrapper">
     <section class="content">
+    <h1><?php if (!isset($_SESSION["username"])) {
+        $_SESSION["username"] = null;
+} else {
+    echo "Welcome " . $_SESSION["username"];
+}
+    ?></h1>
     <p>
         <?php 
         sessions\message();

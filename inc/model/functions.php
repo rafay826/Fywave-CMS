@@ -51,13 +51,12 @@ function find_all_admins() {
 
 //PASSWORD ENCRYPT
 function password_encrypt($password){
-    $hash_format = "$2y$10$"; //CALL BLOWFISH
-    $salt_length = 22;
-    $salt = generate_salt($salt_length);
-    $format_and_salt = $hash_format . $salt;
-
-    $hash = crypt($password, $format_and_salt);
-    return $hash;
+    $hash_format = "$2y$10$";   // Tells PHP to use Blowfish with a "cost" of 10
+	  $salt_length = 22; 					// Blowfish salts should be 22-characters or more
+	  $salt = generate_salt($salt_length);
+	  $format_and_salt = $hash_format . $salt;
+	  $hash = crypt($password, $format_and_salt);
+		return $hash;
 };
 
 //GENERATE SALT
@@ -123,6 +122,7 @@ function menu($subject_id, $page_id){
             <ul>
                         <li><a href="<?php ROOT_PATH; ?>/views/actions/new_admin.php">+ admins</a></li>
                 <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_admin.php">- admins</a></li>
+                <li><a href="<?php ROOT_PATH; ?>/views/actions/logout.php">Logout</a></li>
                     </ul>
         </li>
         <?php 
@@ -261,6 +261,54 @@ function form_errors($errors=array()) {
 		}
 		return $output;
 	}
+
+//FIND ALL ADMINS
+function find_admins_by_username($username) {
+    global $db;
+    
+    $user = mysqli_real_escape_string($db, $username);
+    
+    $query  = "SELECT * 
+               FROM admins
+               WHERE username = '{$user}'
+               LIMIT 1";
+            $admin_result = mysqli_query($db, $query);
+            // Test if there was a query error
+            confirm_query($admin_result);
+            if($admin = mysqli_fetch_assoc($admin_result)){
+            return $admin;
+            } else {
+                return null;
+            }
+}
+
+function attempt_login($username, $password) {
+    $admin = find_admins_by_username($username);
+    if ($admin) {
+			// found admin, now check password
+			if (password_check($password, $admin["hashed_password"])) {
+				// password matches
+				return $admin;
+			} else {
+				// password does not match
+				return false;
+			}
+		} else {
+			// admin not found
+			return false;
+		}
+    
+}
+
+function logged_in() {
+    return isset($_SESSION['admin_id']);
+}
+
+function confirm_login() {
+    if ( !logged_in() ) {
+        redirect_to('../views/actions/login.php');
+    } 
+}
 	
 
 ?>

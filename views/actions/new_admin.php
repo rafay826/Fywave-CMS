@@ -3,15 +3,14 @@
 <?php require_once( '../../inc/model/db_connect.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php require_once( '../../inc/model/validation_func.php'); ?>
+<?php main\confirm_login(); ?>
 <?php main\find_selected_page(); ?>
 <?php
 
 if( isset($_POST["submit"]) )
 {
     $username = main\mysql_prep($_POST["username"]);
-    $pass = main\mysql_prep($_POST["password"]);
-    $pass1 = main\generate_salt($pass);
-    $password = main\password_encrypt($pass1);
+    $password = main\password_encrypt($_POST["password"]);
     
     validation\no_null($username);
     

@@ -2,6 +2,7 @@
 <?php require_once( '../inc/model/sessions.php'); ?>
 <?php require_once( '../inc/model/db_connect.php'); ?>
 <?php require_once( '../inc/model/functions.php'); ?>
+<?php main\confirm_login(); ?>
 <?php $user = "admin"; ?>
 <?php include('../inc/views/layouts/header.php'); ?>
 <?php main\find_selected_page(); ?>
@@ -31,10 +32,12 @@
             ?>
         <h1><?php echo $current_subject["menu_name"];?></h1>
         <?php
+        if ( main\confirm_login() ) {
         ?>
         <a href="actions/edit_subject.php?subject=<?php echo $current_subject["id"]; ?>" >Edit</a>
         <a href="actions/add_pages.php?subject=<?php echo $current_subject["id"]; ?>">Add Pages</a>
         <?php
+        }
     }else {
         echo "Take a look around!";
     }

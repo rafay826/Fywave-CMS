@@ -4,7 +4,7 @@
 ?>
 <?php require_once( '../inc/model/db_connect.php'); ?>
 <?php require_once( '../inc/model/functions.php'); ?>
-
+<?php main\confirm_login(); ?>
 <?php
 
 $current_subject = main\find_subject_by_id($_GET["subject"]);
