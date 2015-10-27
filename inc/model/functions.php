@@ -119,7 +119,7 @@ function menu($subject_id, $page_id){
         <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_menu_items.php">- delete a menu item</a></li>
                 </ul>
             </li>
-        <li><a href="<?php ROOT_PATH; ?>/views/admin.php">Admin Settings</a>
+        <li><a href="<?php ROOT_PATH; ?>/admin.php">Admin Settings</a>
             <ul>
                         <li><a href="<?php ROOT_PATH; ?>/views/actions/new_admin.php">+ admins</a></li>
                 <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_admin.php">- admins</a></li>
