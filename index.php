@@ -20,7 +20,7 @@
 <div><p><?php echo $current_page["content"];?></p></div>
         <?php
         
-        if ( main\confirm_login() ) {
+        if ( main\logged_in() ) {
         
         ?>
 <a href="views/actions/edit_pages.php?page=<?php echo $current_page["id"]; ?>" >Edit Page</a>
@@ -32,7 +32,7 @@
         <h1><?php echo htmlentities($current_subject["menu_name"]);?></h1>
         <?php
         
-        if ( main\confirm_login() ) {
+        if ( main\logged_in() ) {
         
         ?>
         <a href="views/actions/edit_subject.php?subject=<?php echo $current_subject["id"]; ?>" >Edit</a>

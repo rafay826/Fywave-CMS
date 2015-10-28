@@ -27,18 +27,18 @@
         </div>
         <a href="actions/edit_pages.php?page=<?php echo $current_page["id"]; ?>" >Edit Page</a>
 <?php
-    }elseif($selected_subject_id){
+    } elseif($selected_subject_id){
             $current_subject = main\find_subject_by_id($selected_subject_id);
             ?>
         <h1><?php echo $current_subject["menu_name"];?></h1>
         <?php
-        if ( main\confirm_login() ) {
+        if ( main\logged_in() ) {
         ?>
         <a href="actions/edit_subject.php?subject=<?php echo $current_subject["id"]; ?>" >Edit</a>
         <a href="actions/add_pages.php?subject=<?php echo $current_subject["id"]; ?>">Add Pages</a>
         <?php
         }
-    }else {
+    } else {
         echo "Take a look around!";
     }
     ?>

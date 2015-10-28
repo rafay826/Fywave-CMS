@@ -122,7 +122,7 @@ function menu($subject_id, $page_id){
             <ul>
                         <li><a href="<?php ROOT_PATH; ?>/views/actions/new_admin.php">+ admins</a></li>
                 <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_admin.php">- admins</a></li>
-                <li><a href="<?php ROOT_PATH; ?>/views/actions/logout.php">Logout</a></li>
+                <li><a href="<?php ROOT_PATH; ?>/controller/logout.php">Logout</a></li>
                     </ul>
         </li>
         <?php 
