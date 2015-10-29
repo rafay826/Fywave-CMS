@@ -2,7 +2,7 @@
     session_start();
     require_once( 'inc/model/sessions.php');
 ?>
-<?php require_once( 'inc/model/db_connect.php'); ?>
+<?php require_once( 'inc/model/classes.php'); ?>
 <?php include('inc/model/functions.php'); ?>
 <?php 
     $user = "public";

@@ -13,7 +13,7 @@ function redirect_to($new_location){
 
 function mysql_prep($string) {
     global $db;
-    $safe_result = mysqli_real_escape_string($db, $string);
+    $safe_result = $db->escape_string($string);
     return $safe_result;
 }
 
@@ -32,9 +32,8 @@ function find_all_subjects($public=true) {
     if ($public) {
         $query .= "WHERE visible = 1 ";
     }
-            $result = mysqli_query($db, $query);
+            $result = $db->query($query);
             // Test if there was a query error
-            confirm_query($result);
             return $result;
 }
 
@@ -43,7 +42,7 @@ function find_all_admins() {
     global $db;
     $query  = "SELECT * 
                FROM admins";
-            $admin_result = mysqli_query($db, $query);
+            $admin_result = $db->query($query);
             // Test if there was a query error
             confirm_query($admin_result);
             return $admin_result;
@@ -91,7 +90,7 @@ function password_check($password, $existing_hash) {
 function find_subject_pages($subject_page, $public=true){
     global $db;
     
-    $safe_subject_page = mysqli_real_escape_string($db, $subject_page);
+    $safe_subject_page = $db->escape_string($subject_page);
     
         $query  = "SELECT * 
                    FROM pages
@@ -100,8 +99,8 @@ function find_subject_pages($subject_page, $public=true){
             $query .= "AND visible = 1 ";
         }
         $query .= "ORDER BY position ASC";
-        $page_result = mysqli_query($db, $query);
-        confirm_query($page_result);
+        $page_result = $db->query($query);
+//        $db->confirm_query($page_result);
         return $page_result;
 }
 
@@ -129,7 +128,7 @@ function menu($subject_id, $page_id){
             $result = find_all_subjects(false);
 			while($subjects = mysqli_fetch_assoc($result)) {
 		
-            $safe_subject_id = mysqli_real_escape_string($db, $subject_id);         ?>
+            $safe_subject_id = $db->escape_string($subject_id);         ?>
         <li <?php if($subject_id && $subjects["id"] == $safe_subject_id){ ?> class="selected" <?php } ?> >
             <a href="<?php ROOT_PATH; ?>/views/manage_content.php?subject=<?php echo urlencode($subjects["id"]) ?>"> <?php echo $subjects["menu_name"]; ?> </a>
         </li>
@@ -141,7 +140,7 @@ function menu($subject_id, $page_id){
             // 3. Use returned data (if any)
             while($pages = mysqli_fetch_assoc($page_result)) {
         ?>
-        <?php $safe_page_id = mysqli_real_escape_string($db, $page_id); ?>
+        <?php $safe_page_id = $db->escape_string($page_id); ?>
         <li <?php if($page_id && $pages["id"] == $safe_page_id){ ?> class="selected" <?php } ?> >
             <a href="<?php ROOT_PATH; ?>/views/manage_content.php?page=<?php echo urlencode($pages["id"]) ?>"> <?php echo $pages["menu_name"]; ?> </a>
                 
@@ -166,7 +165,7 @@ function public_menu($subject_id, $page_id){
             $result = find_all_subjects();
 			while($subjects = mysqli_fetch_assoc($result)) {
 		
-            $safe_subject_id = mysqli_real_escape_string($db, $subject_id);         ?>
+            $safe_subject_id = $db->escape_string($subject_id);         ?>
         <li <?php if($subject_id && $subjects["id"] == $safe_subject_id){ ?> class="selected" <?php } ?> >
             <a href="<?php ROOT_PATH; ?>/index.php?subject=<?php echo urlencode($subjects["id"]) ?>"> <?php echo $subjects["menu_name"]; ?> </a>
         </li>
@@ -178,7 +177,7 @@ function public_menu($subject_id, $page_id){
             // 3. Use returned data (if any)
             while($pages = mysqli_fetch_assoc($page_result)) {
         ?>
-        <?php $safe_page_id = mysqli_real_escape_string($db, $page_id); ?>
+        <?php $safe_page_id = $db->escape_string($page_id); ?>
         <li <?php if($page_id && $pages["id"] == $safe_page_id){ ?> class="selected" <?php } ?> >
             <a href="<?php ROOT_PATH; ?>/index.php?page=<?php echo urlencode($pages["id"]) ?>"> <?php echo $pages["menu_name"]; ?> </a>
                 
@@ -196,13 +195,13 @@ function public_menu($subject_id, $page_id){
 //Find Subjects By ID
 function find_subject_by_id($subject_id){
     global $db;
-    $safe_subject = mysqli_real_escape_string($db, $subject_id);
+    $safe_subject = $db->escape_string($subject_id);
     
     $query = "SELECT *
               FROM subjects
               WHERE id = {$safe_subject}
               LIMIT 1";
-    $id_result = mysqli_query($db, $query);
+    $id_result = $db->query($query);
     confirm_query($id_result);
     
     if( $id = mysqli_fetch_assoc($id_result) )
@@ -214,13 +213,13 @@ function find_subject_by_id($subject_id){
 //Find Pages By ID
 function find_pages_by_id($page_id){
     global $db;
-    $safe_page = mysqli_real_escape_string($db, $page_id);
+    $safe_page = $db->escape_string($page_id);
     
     $query = "SELECT *
               FROM pages
               WHERE id = {$safe_page}
               LIMIT 1";
-    $content_result = mysqli_query($db, $query);
+    $content_result = $db->query($query);
     confirm_query($content_result);
     
     if( $content = mysqli_fetch_assoc($content_result) )
@@ -266,13 +265,13 @@ function form_errors($errors=array()) {
 function find_admins_by_username($username) {
     global $db;
     
-    $user = mysqli_real_escape_string($db, $username);
+    $user = $db->escape_string($username);
     
     $query  = "SELECT * 
                FROM admins
                WHERE username = '{$user}'
                LIMIT 1";
-            $admin_result = mysqli_query($db, $query);
+            $admin_result = $db->query($query);
             // Test if there was a query error
             confirm_query($admin_result);
             if($admin = mysqli_fetch_assoc($admin_result)){

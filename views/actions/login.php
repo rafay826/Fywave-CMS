@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require_once( '../../inc/model/sessions.php'); ?>
-<?php require_once( '../../inc/model/db_connect.php'); ?>
+<?php require_once( '../../inc/model/classes.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php require_once( '../../inc/model/validation_func.php'); ?>
 <?php main\find_selected_page(); ?>

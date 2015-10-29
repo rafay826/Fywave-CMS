@@ -8,9 +8,6 @@
 
 <?php
   // 5. Close database connection
-  if(isset($db))
-  {
-      mysqli_close($db);
-  }
+  $db->close_connection();
 ?>
 

@@ -2,7 +2,7 @@
     session_start(); 
     require_once("../../inc/model/sessions.php"); 
 ?>
-<?php require_once( '../../inc/model/db_connect.php'); ?>
+<?php require_once( '../../inc/model/classes.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php require_once( '../../inc/model/validation_func.php'); ?>
 <?php main\confirm_login(); ?>
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
                    visible = {$visible} 
                    WHERE id = {$id} 
                    LIMIT 1";
-		$result = mysqli_query($db, $query);
+		$result = $db->query($query);
 
 		if ($result && mysqli_affected_rows($db) == 1) {
 			// Success

@@ -2,7 +2,7 @@
     session_start(); 
     require_once("../../inc/model/sessions.php"); 
 ?>
-<?php require_once( '../../inc/model/db_connect.php'); ?>
+<?php require_once( '../../inc/model/classes.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php main\confirm_login(); ?>
 <?php main\find_selected_page(); ?>
@@ -24,7 +24,7 @@ if( isset($_POST["submit"]) )
               VALUES
               ('{$id}', '{$menu_name}', '{$content}', {$position}, {$visible} )
              ";
-    $result = mysqli_query($db, $query);
+    $result = $db->query($query);
     
     if($result)
     {

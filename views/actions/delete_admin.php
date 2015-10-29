@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require_once( '../../inc/model/sessions.php'); ?>
-<?php require_once( '../../inc/model/db_connect.php'); ?>
+<?php require_once( '../../inc/model/classes.php'); ?>
 <?php require_once( '../../inc/model/functions.php'); ?>
 <?php require_once( '../../inc/model/validation_func.php'); ?>
 <?php main\confirm_login(); ?>
@@ -18,7 +18,7 @@ if( isset($_POST["submit"]) )
     $query = "DELETE FROM admins
               WHERE username = '{$username}'
               LIMIT 1";
-    $result = mysqli_query($db, $query);
+    $result = $db->query($query);
     
     if($result)
     {
