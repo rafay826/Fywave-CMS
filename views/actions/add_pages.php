@@ -75,7 +75,7 @@ else
             Yes<input type="radio" name="visible" value="1">
             No<input type="radio" name="visible" value="0">
         </p>
-        <input type="submit" name="submit" value="Create Page">
+        <input class="btn btn-success" type="submit" name="submit" value="Create Page">
     </form>
         <a href="../../index.php">cancel</a>
     </section>

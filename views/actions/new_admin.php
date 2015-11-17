@@ -23,7 +23,7 @@ if( isset($_POST["submit"]) )
     
     if($result)
     {
-        $_SESSION["message"] = "Success!";
+        ?><p class="alert alert-success"><?php $_SESSION["message"] = "Success!"; ?></p><?php
         main\redirect_to("../manage_content.php");
     } else {
         $_SESSION["message"] = "Fail!";
@@ -45,7 +45,7 @@ else
         <p>Admin Name: <input type="text" name="username" value=""> </p>
         <p>Password: <input type="password" name="password" value="">
         </p>
-        <input type="submit" name="submit" value="Create Admin">
+        <input class="btn btn-success" type="submit" name="submit" value="Create Admin">
     </form>
         <a href="../manage_content.php">cancel</a>
     </section>

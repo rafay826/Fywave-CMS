@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 <?php include('../../inc/views/layouts/header.php'); ?>
 <?php main\public_menu($selected_subject_id, $selected_page_id); ?>
 <?php //include('../../inc/views/layouts/admin_header.php'); ?>
-<div class="wrapper">
+
     <?php echo sessions\message(); ?>
     <?php echo main\form_errors($errors); ?>
     <?php if (!isset($_SESSION["username"])) {
@@ -54,14 +54,21 @@ if (isset($_POST['submit'])) {
     echo "Welcome " . $_SESSION["username"];
 }
     ?>
-    <section class="content">
+    <section class="content login-content">
     <form action="login.php" method="post">
-        <p>Username: <input type="text" name="username" value="<?php echo htmlentities($username); ?>"></p>
-        <p>Password: <input type="password" name="password" value="">
+        <p>Username: <input id="username" type="text" name="username" value="<?php echo htmlentities($username); ?>"></p>
+        <p>Password: <input id="password" type="password" name="password" value="">
         </p>
-        <input type="submit" name="submit" value="Submit">
+        <input class="btn btn-success" type="submit" name="submit" value="Submit">
     </form>
-    </section>
+        
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
 </div>
+        
+    </section>
+
 
 <?php include('../../inc/views/layouts/footer.php'); ?>

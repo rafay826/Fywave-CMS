@@ -60,10 +60,10 @@ else
             </select>
         </p>
         <p>Visible:
-            Yes<input type="radio" name="visible" value="0">
-            No<input type="radio" name="visible" value="1">
+            Yes<input type="radio" name="visible" value="1">
+            No<input type="radio" name="visible" value="0">
         </p>
-        <input type="submit" name="submit" value="Create Subject">
+        <input class="btn btn-success" type="submit" name="submit" value="Create Subject">
     </form>
         <a href="manage_content.php">cancel</a>
     </section>

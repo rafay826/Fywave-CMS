@@ -25,11 +25,11 @@ function confirm_query($result_set){
 }
 
 //PARENT-NAV
-function find_all_subjects($public=true) {
+function find_all_subjects($public=false) {
     global $db;
     $query  = "SELECT * 
                FROM subjects ";
-    if ($public) {
+    if ($public == true) {
         $query .= "WHERE visible = 1 ";
     }
             $result = $db->query($query);
@@ -109,46 +109,22 @@ function menu($subject_id, $page_id){
     global $db;
 ?>
 <div id="nav-container">
-    <ul class="parent-nav">
+    <ul class="parent-nav nav nav-pills">
         <li><a href="<?php ROOT_PATH; ?>/">Home</a></li>
-            <li>Settings
-                <ul>
-                    <li><a href="<?php ROOT_PATH; ?>/views/actions/new_subject.php">+ add a menu item</a></li>
-        <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_menu_items.php">- delete a menu item</a></li>
+            <li class="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php ROOT_PATH; ?>/views/actions/new_subject.php">add a menu item</a></li>
+        <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_menu_items.php">delete a menu item</a></li>
                 </ul>
             </li>
-        <li><a href="<?php ROOT_PATH; ?>/admin.php">Admin Settings</a>
-            <ul>
-                        <li><a href="<?php ROOT_PATH; ?>/views/actions/new_admin.php">+ admins</a></li>
-                <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_admin.php">- admins</a></li>
-                <li><a href="<?php ROOT_PATH; ?>/controller/logout.php">Logout</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?php ROOT_PATH; ?>/admin.php">Admin Settings</a>
+            <ul class="dropdown-menu">
+                        <li><a href="<?php ROOT_PATH; ?>/views/actions/new_admin.php">add admins</a></li>
+                <li><a href="<?php ROOT_PATH; ?>/views/actions/delete_admin.php">delete admins</a></li>
                     </ul>
         </li>
-        <?php 
-            $result = find_all_subjects(false);
-			while($subjects = mysqli_fetch_assoc($result)) {
-		
-            $safe_subject_id = $db->escape_string($subject_id);         ?>
-        <li <?php if($subject_id && $subjects["id"] == $safe_subject_id){ ?> class="selected" <?php } ?> >
-            <a href="<?php ROOT_PATH; ?>/views/manage_content.php?subject=<?php echo urlencode($subjects["id"]) ?>"> <?php echo $subjects["menu_name"]; ?> </a>
-        </li>
-         <?php
-            $page_result = find_subject_pages($subjects["id"], false);
-         ?>
-        <ul class="child-nav">
-        <?php
-            // 3. Use returned data (if any)
-            while($pages = mysqli_fetch_assoc($page_result)) {
-        ?>
-        <?php $safe_page_id = $db->escape_string($page_id); ?>
-        <li <?php if($page_id && $pages["id"] == $safe_page_id){ ?> class="selected" <?php } ?> >
-            <a href="<?php ROOT_PATH; ?>/views/manage_content.php?page=<?php echo urlencode($pages["id"]) ?>"> <?php echo $pages["menu_name"]; ?> </a>
-                
-        </li>
-        <?php }
-                mysqli_free_result($page_result); ?>
-        </ul>
-    <?php } mysqli_free_result($result); ?>
+        
+        <li><a href="<?php ROOT_PATH; ?>/controller/logout.php">Logout</a></li>
     </ul>
 </div>
 <?php
@@ -159,20 +135,19 @@ function public_menu($subject_id, $page_id){
     global $db;
 ?>
 <div id="nav-container">
-    <ul class="parent-nav">
+    <ul class="parent-nav nav nav-pills">
         <li><a href="http://yodas.brain">Home</a></li>
         <?php 
-            $result = find_all_subjects();
+            $result = find_all_subjects($public=true);
 			while($subjects = mysqli_fetch_assoc($result)) {
 		
             $safe_subject_id = $db->escape_string($subject_id);         ?>
-        <li <?php if($subject_id && $subjects["id"] == $safe_subject_id){ ?> class="selected" <?php } ?> >
-            <a href="<?php ROOT_PATH; ?>/index.php?subject=<?php echo urlencode($subjects["id"]) ?>"> <?php echo $subjects["menu_name"]; ?> </a>
-        </li>
-         <?php
+        <li class="dropdown" <?php if($subject_id && $subjects["id"] == $safe_subject_id){ ?> class="selected" <?php } ?> >
+            <a class="dropdown-toggle" data-toggle="dropdown" href="<?php ROOT_PATH; ?>/index.php?subject=<?php echo urlencode($subjects["id"]) ?>" aria-haspopup="true" aria-expanded="false"><?php echo $subjects["menu_name"]; ?> </a>
+            <?php
             $page_result = find_subject_pages($subjects["id"]);
          ?>
-        <ul class="child-nav">
+        <ul class="child-nav dropdown-menu">
         <?php
             // 3. Use returned data (if any)
             while($pages = mysqli_fetch_assoc($page_result)) {
@@ -186,6 +161,23 @@ function public_menu($subject_id, $page_id){
                 mysqli_free_result($page_result); ?>
         </ul>
     <?php } mysqli_free_result($result); ?>
+        </li>
+        
+        <?php if ( logged_in() ) { ?>
+        
+        <li><a href="../../admin.php">Admin</a></li>
+        
+        <?php } ?>
+        <?php if ( !logged_in() ) { ?>
+        
+        <li><a href="../../views/actions/login.php">Login</a></li>
+        
+        <?php } ?>
+        <?php if ( logged_in() ) { ?>
+        
+        <li><a href="<?php ROOT_PATH; ?>/controller/logout.php">Logout</a></li>
+        
+        <?php } ?>
     </ul>
 </div>
 <?php
@@ -305,7 +297,7 @@ function logged_in() {
 
 function confirm_login() {
     if ( !logged_in() ) {
-        redirect_to('../views/actions/login.php');
+        redirect_to( ROOT_PATH . '/views/actions/login.php');
     } 
 }
 	

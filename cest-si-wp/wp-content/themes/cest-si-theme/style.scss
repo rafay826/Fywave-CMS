@@ -1,0 +1,571 @@
+@charset "UTF-8";
+/*
+Theme Name: Cest Si Bon Theme
+Theme URI: http://beverlyhillsdigitalmarketing.com http://fywave.com
+Author: Rafay Choudhury
+Author URI: http://beverlyhillsdigitalmarketing.com http://fywave.com
+Description: A theme skeleton hooked in with all of the appropriate calls for angular, jquery, mobile, nav, animation, and bare bones structure to streamline theme development.
+Version: 1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, green, white, light, dark, two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
+Text Domain: Fywave Breadkit Skeleton Theme
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* Bitters 0.10.0
+ * http://bitters.bourbon.io
+ * Copyright 2013–2014 thoughtbot, inc.
+ * MIT License */
+
+@import 'css/sass/bourbon/bourbon/';
+@import 'css/sass/neat/neat/';
+@import 'css/sass/partials/variables';
+@import 'css/sass/partials/mixins';
+
+
+/********** GLOBAL **********/
+
+*
+{
+    margin: 0;
+    padding: 0;
+};
+
+html, body
+{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+.page-container
+{
+    @include span-columns(12);
+    min-height: 100%;
+    margin-bottom: -150px;
+    
+    &:after
+    {
+        content: "";
+        display: block;
+    }
+}
+
+footer, .page-container:after
+{
+    height: 150px;
+    margin-top: 5%;
+}
+
+/********** HEADER **********/
+
+#heading
+{
+    background: url('images/png/linen/linen.png');
+    background-attachment: fixed;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    
+    table
+    {
+        width: 100%;
+        
+        tbody
+        {
+            tr
+            {
+                td
+                {
+                    width: 33%;
+                    
+                    &:nth-child(3)
+                    {
+                        h1
+                        {
+                            font-family: $h1-font;
+                            color: $turquoise;
+                            font-size: 32px;
+                            text-align: center;
+                        }
+                        
+                        p
+                        {
+                            text-align: center;
+                            a
+                            {
+                                text-decoration: none;
+                                text-align: center;
+                                font-family: $p-font;
+                                color: $text-grey;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cest-si-logo
+{    
+    img
+    {
+        width: 25%;
+        margin: 0 auto;
+        display: block;
+        
+        @media screen and (max-width:850px)
+        {
+            width: 50%;
+        }
+        
+        @media screen and (max-width:650px)
+        {
+            display: none;
+        }
+    }
+}
+
+.social-links-head
+{
+    background: url("images/png/social-ribbon.png");
+    background-repeat: no-repeat;
+    padding-bottom: 20%;
+    margin-left: 25%;
+    ul
+    {   
+        padding: 2% 0 0 3%;
+        li
+        {
+            list-style: none;
+            &:nth-child(1)
+            {
+                a
+                {
+                    img
+                    {
+//                        width: 20%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/********** NAV **********/
+
+.nav
+{
+    position:fixed;
+    background:rgba(229, 116, 168, .95);
+    width:38%;
+    @include transform(translateX(-100%));
+    height:1500px;
+    z-index: 999;
+    ul
+    {
+        padding-top: 5%;
+        li
+        {
+            text-align: center;
+            font-size: 36px;
+            padding-bottom: 2%;
+            
+            @media screen and (max-width:800px)
+            {
+                font-size: 26px;
+            }
+            
+            @media screen and (max-width:600px)
+            {
+                font-size: 20px;
+            }
+            
+            
+            a
+            {
+                text-decoration: none;
+                color: white;
+                font-family: $p-font;
+            }
+        }
+    }
+}
+
+
+.nav-bttn
+{
+  width: 25%;
+  margin-left: 25%;
+  position: absolute;
+  top: 15%;
+  z-index: 1000;
+    cursor: pointer;
+}
+
+.nav-bttn-open
+{
+    cursor: pointer;
+    margin-top: 15%;
+}
+
+/********** SCENE-1 **********/
+
+#scene-1
+{
+    @include flexSize();
+}
+
+#order-now
+{
+    border-bottom: 1px solid #ECF0F1;
+    
+    button
+    {
+        @include pinkBox();
+          margin: 3% auto;
+          display: block;
+          padding: 1% 2% 1% 2%;
+          background: transparent;
+          color: $dark-pink;
+          font-size: 24px;
+        font-weight: 300;
+        font-family: $p-font;
+        cursor: pointer;
+        
+        @media screen and (max-width:1000px)
+            {
+                margin:5% auto;
+            }
+
+            @media screen and (max-width:600px)
+            {
+                margin: 10% auto;
+            }
+    }
+}
+
+/********** SCENE-2 **********/
+
+#scene-2
+{
+    background: $pink;
+    @include flexSize;
+    @include columnCount(4);
+    
+    @media screen and (max-width:1000px)
+    {
+        @include columnCount(2);
+    }
+    
+    @media screen and (max-width:600px)
+    {
+        @include columnCount(1);
+    }
+    
+    div
+    {
+        margin: 0 auto;
+        display: block;
+        margin-bottom: -10%;
+        
+        @media screen and (max-width:600px)
+        {
+            margin-bottom: 5%;
+        }
+        
+        img
+        {
+            padding: 10% 0 10% 0;
+            margin: 0 auto;
+            display: block;
+            @media screen and (max-width:1000px)
+            {
+                width: 50%;
+            }
+
+            @media screen and (max-width:600px)
+            {
+                width: 25%;
+            }
+        }
+        
+        h1
+        {
+            text-align: center;
+            font-family: $h1-font;
+            color: $turquoise;
+            text-shadow: 3px 3px 10px black;
+            margin-bottom: 10%;
+        }
+    }
+}
+
+/********** SCENE-3 **********/
+
+.home-content
+{
+    @include mainContent();
+    padding-top: 5%;
+    
+    .home-title
+    {
+        @include headTitle();
+        padding-bottom: 3%;
+    }
+    
+    .home-p
+    {
+        font-family: $p-font;
+        padding-bottom: 5%;
+    }
+}
+
+/********** FOOTER **********/
+
+footer
+{
+    background: $grey;
+    color: white;
+    width: 100%;
+    max-width: 100%;
+    clear: both;
+    bottom: 0;
+    
+    table
+    {
+        tbody
+        {
+            tr
+            {
+                td
+                {
+                    &:nth-child(1)
+                    {
+                        width: 35%;
+                        .social-links
+                        {
+                            img
+                            {
+                                width: 20%;
+                                padding: 2%;
+                            }
+                        }
+                    }
+                    
+                    &:nth-child(2)
+                    {
+                        width: 60%;
+                        
+                        .footer-content
+                        {
+                            text-align: center;
+                            @include columnCount(3);
+                            
+                            p
+                            {
+                                font-family: $p-font;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/********** INTERNAL CONTENT **********/
+
+.internal-content
+{
+    @include mainContent();
+    padding-bottom: 5%;
+    
+    .internal-title
+    {
+        @include headTitle();
+        margin: 5% 0 5% 0;
+    }
+    
+    .internal-content
+    {
+        font-family: $p-font;
+        
+    }
+}
+
+/********** PRODUCT TEMPLATE **********/
+
+.product-table
+{
+    width: 100%;
+    border: none;
+    border-spacing: 0;
+    tr
+    {
+        td
+        {
+//            &:nth-child(1)
+//            {
+//                width: 38%;
+//            }
+            
+            &:nth-child(2)
+            {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.product-title
+{
+    @include headTitle();
+    text-align: center;
+    margin: 5% 0 5% 0;
+}
+
+.product-content
+{
+    text-align: center;
+    font-family: $p-font;
+}
+
+#product-scene-2
+{
+    width: 70%;
+    margin: 0 auto;
+}
+
+/********** SLIDESHOW **********/
+
+.slideshow-slider img
+{
+    border-radius: 50%;
+}
+
+/********** CONTACT **********/
+
+//#contact-form
+//{
+//    table
+//    {
+//        @include contactTable();
+//    }
+//}
+
+//********** CONTACT **********//
+
+#contact-form
+{
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 1%;
+    
+    @media screen and (max-width:750px)
+    {
+        width: 75%;
+    }
+    
+    table
+    {
+      table-layout: fixed;
+      width: 100%;
+      border: none;
+      @include contactTable();
+        
+        tbody
+        {
+            text-align: center;
+            margin: 0 auto;
+            
+            tr
+            {
+                  text-align: center;
+                  margin: 0 auto;
+                  color: grey;
+                
+                label
+                {
+                    display: block;
+                    font-family: 'Lato';
+                    font-weight: 300;
+                }
+                
+                td
+                {
+                     margin: 0 auto;
+                     display: block;
+                     border: none;
+                    
+                    input, textarea
+                    {
+                          width: 75%;
+                          margin: 0 auto;
+                          margin-top: 2%;
+                          margin-bottom: 2%;
+                          border-radius: 2px;
+                          padding: 1%;
+                          border: 1px solid grey;
+                    }
+ 
+                }
+                
+            }
+            .contact-file
+                {
+                  
+                    
+                        td
+                        {
+                            display: inline-block;
+                            padding-top: 2%;
+                            padding-bottom: 2%;
+                            width: 100%;
+                            
+                            input
+                            {
+                                width: 75%
+                            }
+                            
+                            @media screen and (max-width:950px)
+                            {
+                                display: block;
+                            }
+                        
+                        }
+                    
+                }
+        }
+    }
+}
+.contact-title
+{
+    @include headTitle();
+    text-align: center;
+    padding: 2% 0 2% 0;
+}
+
+.contact-submit
+{
+    @include pinkBox();
+  margin: 3% auto;
+  display: block;
+  padding: 1% 3% 1% 3%;
+  background: transparent;
+  color: $dark-pink;
+  font-size: 18px;
+font-weight: 300;
+font-family: $p-font;
+cursor: pointer;
+}

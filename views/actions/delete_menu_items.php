@@ -20,7 +20,7 @@ if( isset($_POST["submit"]) )
     if($result)
     {
         $_SESSION["message"] = "Success!";
-        main\redirect_to("../../index.php");
+        main\redirect_to("delete_menu_items.php");
     } else {
         $_SESSION["message"] = "Fail!";
         main\redirect_to("delete_menu_items.php");
@@ -52,7 +52,7 @@ else
                     mysqli_free_result($menu_items);
                 ?>
             </select> </p>
-        <input type="submit" name="submit" value="Delete Subject">
+        <input onclick="return confirm('are you sure?')" class="btn btn-danger" type="submit" name="submit" value="Delete Subject">
     </form>
         <a href="../manage_content.php">cancel</a>
     </section>

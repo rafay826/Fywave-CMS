@@ -23,7 +23,7 @@
         if ( main\logged_in() ) {
         
         ?>
-<a href="views/actions/edit_pages.php?page=<?php echo $current_page["id"]; ?>" >Edit Page</a>
+<a href="views/actions/edit_pages.php?page=<?php echo $current_page["id"]; ?>" class="btn btn-warning" >Edit Page</a>
 <?php
         }
     }elseif($selected_subject_id){
@@ -35,8 +35,8 @@
         if ( main\logged_in() ) {
         
         ?>
-        <a href="views/actions/edit_subject.php?subject=<?php echo $current_subject["id"]; ?>" >Edit</a>
-        <a href="views/actions/add_pages.php?subject=<?php echo $current_subject["id"]; ?>">Add Pages</a>
+        <a href="views/actions/edit_subject.php?subject=<?php echo $current_subject["id"]; ?>" class="btn btn-warning" >Edit</a>
+        <a href="views/actions/add_pages.php?subject=<?php echo $current_subject["id"]; ?>" class="btn btn-success">Add Pages</a>
         <?php
         }
     }else {

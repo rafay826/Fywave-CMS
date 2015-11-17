@@ -98,12 +98,12 @@ if (isset($_POST['submit'])) {
 		    &nbsp;
 		    <input type="radio" name="visible" value="1" <?php if ($current_subject["visible"] == 1) { echo "checked"; } ?>/> Yes
 		  </p>
-        <input type="submit" name="submit" value="Edit Subject">
+        <input type="submit" class="btn btn-success" name="submit" value="Edit Subject">
     </form>
         <a href="../../index.php">cancel</a>
         <br>
         <br>
-        <a href="../../controller/delete_subject.php?subject=<?php echo $current_subject["id"] ?>" onclick="return confirm('you are about to delete this subject, are you sure?');">Delete Menu</a>
+        <a class="btn btn-danger" href="../../controller/delete_subject.php?subject=<?php echo $current_subject["id"] ?>" onclick="return confirm('you are about to delete this subject, are you sure?');">Delete Menu</a>
     </section>
 </div>
 

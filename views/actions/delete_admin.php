@@ -57,7 +57,7 @@ else
             </select> </p>
 <!--        <p>Password: <input type="text" name="password" value="">-->
         </p>
-        <input type="submit" name="submit" onclick="return confirm('Are you sure?');" value="Delete Admin">
+        <input class="btn btn-danger" type="submit" name="submit" onclick="return confirm('Are you sure?');" value="Delete Admin">
     </form>
         <a href="../manage_content.php">cancel</a>
     </section>

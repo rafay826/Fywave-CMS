@@ -1,0 +1,382 @@
+@charset "UTF-8";
+/*
+Theme Name: Cest Si Bon Theme
+Theme URI: http://beverlyhillsdigitalmarketing.com http://fywave.com
+Author: Rafay Choudhury
+Author URI: http://beverlyhillsdigitalmarketing.com http://fywave.com
+Description: A theme skeleton hooked in with all of the appropriate calls for angular, jquery, mobile, nav, animation, and bare bones structure to streamline theme development.
+Version: 1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, green, white, light, dark, two-columns, three-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
+Text Domain: Fywave Breadkit Skeleton Theme
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/* Bitters 0.10.0
+ * http://bitters.bourbon.io
+ * Copyright 2013–2014 thoughtbot, inc.
+ * MIT License */
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/********** GLOBAL **********/
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  position: relative; }
+
+.page-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  min-height: 100%;
+  margin-bottom: -150px; }
+  .page-container:last-child {
+    margin-right: 0; }
+  .page-container:after {
+    content: "";
+    display: block; }
+
+footer, .page-container:after {
+  height: 150px;
+  margin-top: 5%; }
+
+/********** HEADER **********/
+#heading {
+  background: url("images/png/linen/linen.png");
+  background-attachment: fixed;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0;
+  padding: 0; }
+  #heading table {
+    width: 100%; }
+    #heading table tbody tr td {
+      width: 33%; }
+      #heading table tbody tr td:nth-child(3) h1 {
+        font-family: "Pacifico";
+        color: #27b999;
+        font-size: 32px;
+        text-align: center; }
+      #heading table tbody tr td:nth-child(3) p {
+        text-align: center; }
+        #heading table tbody tr td:nth-child(3) p a {
+          text-decoration: none;
+          text-align: center;
+          font-family: "Open Sans";
+          color: #767f80; }
+
+.cest-si-logo img {
+  width: 25%;
+  margin: 0 auto;
+  display: block; }
+  @media screen and (max-width: 850px) {
+    .cest-si-logo img {
+      width: 50%; } }
+  @media screen and (max-width: 650px) {
+    .cest-si-logo img {
+      display: none; } }
+
+.social-links-head {
+  background: url("images/png/social-ribbon.png");
+  background-repeat: no-repeat;
+  padding-bottom: 20%;
+  margin-left: 25%; }
+  .social-links-head ul {
+    padding: 2% 0 0 3%; }
+    .social-links-head ul li {
+      list-style: none; }
+
+/********** NAV **********/
+.nav {
+  position: fixed;
+  background: rgba(229, 116, 168, 0.95);
+  width: 38%;
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+  height: 1500px;
+  z-index: 999; }
+  .nav ul {
+    padding-top: 5%; }
+    .nav ul li {
+      text-align: center;
+      font-size: 36px;
+      padding-bottom: 2%; }
+      @media screen and (max-width: 800px) {
+        .nav ul li {
+          font-size: 26px; } }
+      @media screen and (max-width: 600px) {
+        .nav ul li {
+          font-size: 20px; } }
+      .nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: "Open Sans"; }
+
+.nav-bttn {
+  width: 25%;
+  margin-left: 25%;
+  position: absolute;
+  top: 15%;
+  z-index: 1000;
+  cursor: pointer; }
+
+.nav-bttn-open {
+  cursor: pointer;
+  margin-top: 15%; }
+
+/********** SCENE-1 **********/
+#scene-1 {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%; }
+
+#order-now {
+  border-bottom: 1px solid #ECF0F1; }
+  #order-now button {
+    border: 1px solid #ed145b;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 3% auto;
+    display: block;
+    padding: 1% 2% 1% 2%;
+    background: transparent;
+    color: #ed145b;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: "Open Sans";
+    cursor: pointer; }
+    @media screen and (max-width: 1000px) {
+      #order-now button {
+        margin: 5% auto; } }
+    @media screen and (max-width: 600px) {
+      #order-now button {
+        margin: 10% auto; } }
+
+/********** SCENE-2 **********/
+#scene-2 {
+  background: #e574a8;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  -o-column-count: 4; }
+  @media screen and (max-width: 1000px) {
+    #scene-2 {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      -o-column-count: 2; } }
+  @media screen and (max-width: 600px) {
+    #scene-2 {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      -o-column-count: 1; } }
+  #scene-2 div {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: -10%; }
+    @media screen and (max-width: 600px) {
+      #scene-2 div {
+        margin-bottom: 5%; } }
+    #scene-2 div img {
+      padding: 10% 0 10% 0;
+      margin: 0 auto;
+      display: block; }
+      @media screen and (max-width: 1000px) {
+        #scene-2 div img {
+          width: 50%; } }
+      @media screen and (max-width: 600px) {
+        #scene-2 div img {
+          width: 25%; } }
+    #scene-2 div h1 {
+      text-align: center;
+      font-family: "Pacifico";
+      color: #27b999;
+      text-shadow: 3px 3px 10px black;
+      margin-bottom: 10%; }
+
+/********** SCENE-3 **********/
+.home-content {
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+  padding-top: 5%; }
+  .home-content .home-title {
+    font-family: "Pacifico";
+    color: #27b999;
+    font-size: 36px;
+    padding-bottom: 3%; }
+  .home-content .home-p {
+    font-family: "Open Sans";
+    padding-bottom: 5%; }
+
+/********** FOOTER **********/
+footer {
+  background: #7f8c8d;
+  color: white;
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+  bottom: 0; }
+  footer table tbody tr td:nth-child(1) {
+    width: 35%; }
+    footer table tbody tr td:nth-child(1) .social-links img {
+      width: 20%;
+      padding: 2%; }
+  footer table tbody tr td:nth-child(2) {
+    width: 60%; }
+    footer table tbody tr td:nth-child(2) .footer-content {
+      text-align: center;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      -o-column-count: 3; }
+      footer table tbody tr td:nth-child(2) .footer-content p {
+        font-family: "Open Sans"; }
+
+/********** INTERNAL CONTENT **********/
+.internal-content {
+  text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 5%; }
+  .internal-content .internal-title {
+    font-family: "Pacifico";
+    color: #27b999;
+    font-size: 36px;
+    margin: 5% 0 5% 0; }
+  .internal-content .internal-content {
+    font-family: "Open Sans"; }
+
+/********** PRODUCT TEMPLATE **********/
+.product-table {
+  width: 100%;
+  border: none;
+  border-spacing: 0; }
+  .product-table tr td:nth-child(2) {
+    width: 100%; }
+
+.product-title {
+  font-family: "Pacifico";
+  color: #27b999;
+  font-size: 36px;
+  text-align: center;
+  margin: 5% 0 5% 0; }
+
+.product-content {
+  text-align: center;
+  font-family: "Open Sans"; }
+
+#product-scene-2 {
+  width: 70%;
+  margin: 0 auto; }
+
+/********** SLIDESHOW **********/
+.slideshow-slider img {
+  border-radius: 50%; }
+
+/********** CONTACT **********/
+#contact-form {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 1%; }
+  @media screen and (max-width: 750px) {
+    #contact-form {
+      width: 75%; } }
+  #contact-form table {
+    table-layout: fixed;
+    width: 100%;
+    border: none;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 5px;
+    border: 1px solid #ed145b; }
+    #contact-form table tbody {
+      text-align: center;
+      margin: 0 auto; }
+      #contact-form table tbody tr {
+        text-align: center;
+        margin: 0 auto;
+        color: grey; }
+        #contact-form table tbody tr label {
+          display: block;
+          font-family: 'Lato';
+          font-weight: 300; }
+        #contact-form table tbody tr td {
+          margin: 0 auto;
+          display: block;
+          border: none; }
+          #contact-form table tbody tr td input, #contact-form table tbody tr td textarea {
+            width: 75%;
+            margin: 0 auto;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            border-radius: 2px;
+            padding: 1%;
+            border: 1px solid grey; }
+      #contact-form table tbody .contact-file td {
+        display: inline-block;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        width: 100%; }
+        #contact-form table tbody .contact-file td input {
+          width: 75%; }
+        @media screen and (max-width: 950px) {
+          #contact-form table tbody .contact-file td {
+            display: block; } }
+
+.contact-title {
+  font-family: "Pacifico";
+  color: #27b999;
+  font-size: 36px;
+  text-align: center;
+  padding: 2% 0 2% 0; }
+
+.contact-submit {
+  border: 1px solid #ed145b;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin: 3% auto;
+  display: block;
+  padding: 1% 3% 1% 3%;
+  background: transparent;
+  color: #ed145b;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: "Open Sans";
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

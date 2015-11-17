@@ -1,0 +1,53 @@
+@import '../bourbon/bourbon';
+@import 'variables';
+
+@mixin borderRadius($x)
+{
+    -webkit-border-radius: $x;
+    -moz-border-radius: $x;
+    -o-border-radius: $x;
+}
+
+@mixin flexSize()
+{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+@mixin pinkBox()
+{
+    border: 1px solid #ed145b;
+    @include borderRadius(5px);
+}
+
+@mixin columnCount($y)
+{
+    -webkit-column-count: $y;
+    -moz-column-count: $y;
+    -o-column-count: $y;
+}
+
+@mixin headTitle()
+{
+    font-family: $h1-font;
+    color: $turquoise;
+    font-size: 36px;
+}
+
+@mixin mainContent()
+{
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    display: block;
+}
+
+@mixin contactTable()
+{
+  margin: 0 auto;
+  padding: 2%;
+  border-radius: 5px;
+  border: 1px solid $dark-pink;
+}

@@ -1,0 +1,50 @@
+/**COLORS**/
+/********** GLOBAL **********/
+/* line 9, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+html, body {
+  height: 100%;
+  width: 100%; }
+
+/* line 14, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+#wrapper {
+  position: relative;
+  min-height: 100%; }
+
+/* line 19, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+#wrap {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  padding-bottom: 150px; }
+
+/* line 26, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+.content {
+  width: 75%;
+  margin: 0 auto; }
+
+/* line 31, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+.login-content {
+  text-align: center;
+  margin-top: 10%; }
+
+/********** MENU **********/
+/* line 38, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+.nav {
+  text-align: center;
+  background: #eeeeee; }
+
+/* line 43, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+.nav-pills > li {
+  float: none !important;
+  display: inline-block !important; }
+
+/********** FOOTER **********/
+/* line 50, /Users/Rafay/Dropbox/fywave-server/public_html/vendor/css/style.scss */
+footer {
+  position: absolute;
+  bottom: 0;
+  background: #777777;
+  width: 100%;
+  height: 150px; }
+
+/*# sourceMappingURL=style.css.map */

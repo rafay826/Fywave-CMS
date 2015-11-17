@@ -39,7 +39,9 @@
         <?php
         }
     } else {
-        echo "Take a look around!";
+        ?>
+        <p class="alert alert-success">Welcome to Fywave CMS!</p>
+        <?php
     }
     ?>
     </section>
